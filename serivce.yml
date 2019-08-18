@@ -1,0 +1,15 @@
+# Cluster IP  Service
+apiVersion: v1
+kind: Service
+metadata:  
+  name: my-clusterip-service
+spec:
+  selector:    
+    app: nginx
+    version: "1"
+  type: ClusterIP
+  ports:  
+  - name: http
+    port: 80
+    targetPort: 80
+    protocol: TCP
