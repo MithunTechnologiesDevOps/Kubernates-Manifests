@@ -13,10 +13,10 @@ spec:
       labels:
         name: mongo
     spec:
-	  volumes:
-	    - name: nfs-volume
-	      persistentVolumeClaim:
-	        claimName: pvc-nfs-pv1
+      volumes:
+      - name: host-volume
+        persistentVolumeClaim:
+          claimName: pvc-nfs-pv1      
       containers:
       - image: mongo
         name: mongo
@@ -25,9 +25,9 @@ spec:
           containerPort: 27017
           hostPort: 27017
         volumeMounts:
-        - name: nfs-volume
+        - name: host-volume
           mountPath: /data/db
-...		 
+... 		 
 ---
 # Mongo Node Port RC
 apiVersion: v1
