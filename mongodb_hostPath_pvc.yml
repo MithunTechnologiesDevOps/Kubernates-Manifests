@@ -27,7 +27,7 @@ spec:
         volumeMounts:
         - name: host-volume
           mountPath: /data/db
-... 		 
+...
 ---
 # Mongo Node Port RC
 apiVersion: v1
@@ -43,4 +43,4 @@ spec:
       targetPort: 27017
   selector:
     name: mongo
-...	
+...
