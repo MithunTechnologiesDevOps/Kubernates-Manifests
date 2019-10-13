@@ -13,10 +13,10 @@ spec:
       labels:
         name: mongo
     spec:
-	  volumes:
-	    - name: host-volume
-	      persistentVolumeClaim:
-	        claimName: pvc-hostpath
+      volumes:
+      - name: host-volume
+        persistentVolumeClaim:
+          claimName: pvc-hostpath   
       containers:
       - image: mongo
         name: mongo
@@ -27,7 +27,7 @@ spec:
         volumeMounts:
         - name: host-volume
           mountPath: /data/db
-...		 
+... 		 
 ---
 # Mongo Node Port RC
 apiVersion: v1
