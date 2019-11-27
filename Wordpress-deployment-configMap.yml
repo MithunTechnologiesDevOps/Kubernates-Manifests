@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress
+  labels:
+    app: wordpress
+spec:
+  selector:
+    matchLabels:
+      app: wordpress
+      tier: frontend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: wordpress
+        tier: frontend
+    spec:
+      containers:
+      - image: wordpress:latest
+        name: wordpress
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: wordpress-mysql
+        - name: WORDPRESS_DB_PASSWORD
+          valueFrom:
+            configMapKeyRef:
+              name: mysql-configmap
+              key: password
+        ports:
+        - containerPort: 80
+          name: wordpress
+---		  
+# Node Port Service
+apiVersion: v1
+kind: Service
+metadata:  
+  name: wordpress-service
+spec:
+  selector:    
+    app: wordpress
+    tier: frontend
+  type: NodePort
+  ports:  
+  - name: http
+    port: 80
+    targetPort: 80
+    protocol: TCP
