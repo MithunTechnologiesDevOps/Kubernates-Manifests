@@ -1,0 +1,18 @@
+ apiVersion: extensions/v1beta1
+ kind: Ingress
+ metadata:
+   name: ingress-resource-2
+ spec:
+   rules:
+   - host: springboot.example.com
+     http:
+       paths:
+       - backend:
+           serviceName: springboot
+           servicePort: 80
+   - host: javawebapp.example.com
+     http:
+       paths:
+       - backend:
+           serviceName: javawebapp
+           servicePort: 80
