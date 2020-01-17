@@ -24,9 +24,8 @@ spec:
           mountPath: /data/db
       volumes:
       - name: mongo-persistent-storage
-        awsElasticBlockStore:
-          volumeID: vol-01aa6a898ed076218
-          fsType: ext4
+        hostPath:
+         path: /tmp/dbbackup
 ---
 # Mongo Node Port RC
 apiVersion: v1
