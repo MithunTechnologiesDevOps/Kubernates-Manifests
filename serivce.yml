@@ -6,7 +6,6 @@ metadata:
 spec:
   selector:    
     app: nginx
-    version: "1"
   type: ClusterIP
   ports:  
   - name: http
