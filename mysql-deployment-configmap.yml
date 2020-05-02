@@ -1,4 +1,4 @@
-# Config Map Details Should be checked in SCM tools. Instead create configMaps using commands or ymls directly in respective clusters.
+# Config Map Details Should not be checked in SCM tools. Instead create configMaps using commands or ymls directly in respective clusters.
 ---
 kind: ConfigMap 
 apiVersion: v1 
