@@ -1,5 +1,4 @@
-# Complete Manifest Where in single yml we defined Deployment & Service for SpringApp & PVC(with NFS Dynamic StorageClass),ReplicaSet & Service For Mongo.
-
+# Complete Manifest Where in single yml we defined Deployment & Service for SpringApp & PVC(with default  StorageClass),ReplicaSet & Service For Mongo.
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -38,20 +37,18 @@ spec:
   ports:
   - port: 80
     targetPort: 8080
-    nodePort: 30032
-  type: NodePort
+  type: LoadBalancer
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: mongodbpvc 
 spec:
-  storageClassName: nfs-storageclass
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
-      storage: 100Mi
+      storage: 1Gi
 ---
 apiVersion: apps/v1
 kind: ReplicaSet
