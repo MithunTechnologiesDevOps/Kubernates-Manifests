@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: loadtest
+spec:
+  template:
+    spec:
+      containers:
+      - name: siege
+        image: dockerhandson/loadtest
+        command: ["siege", "-v", "--concurrent=2", "--benchmark", "--time=4m", "http://hpaclusterservice", "-p"]
+      restartPolicy: Never
+  backoffLimit: 4
