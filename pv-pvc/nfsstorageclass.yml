@@ -82,7 +82,7 @@ spec:
       serviceAccountName: nfs-pod-provisioner-sa # name of service account created in rbac.yaml
       containers:
         - name: nfs-pod-provisioner
-          image: quay.io/external_storage/nfs-client-provisioner:latest
+          image: rkevin/nfs-subdir-external-provisioner:fix-k8s-1.20
           volumeMounts:
             - name: nfs-provisioner-v
               mountPath: /persistentvolumes
