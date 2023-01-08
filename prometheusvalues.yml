@@ -12,7 +12,7 @@ alertmanager:
           smarthost: smtp.gmail.com:587
           auth_username: devopslearningnine@gmail.com # Update your from mail id here
           auth_identity: devopslearningnine@gmail.com # Update your from mail id here
-          auth_password: vfkzbycfwfgfuasu  # Update your password here
+          auth_password: XXXXXXXXX  # Update your password here
           send_resolved: true
           headers:
             subject: " Prometheus -  Alert  "
