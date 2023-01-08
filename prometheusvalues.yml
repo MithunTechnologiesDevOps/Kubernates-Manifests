@@ -1,5 +1,5 @@
-alertmanagerFiles:
-  alertmanager.yml:
+alertmanager:
+  config:
     global:
       resolve_timeout: 1m
       # slack_api_url: ''
@@ -7,12 +7,12 @@ alertmanagerFiles:
     receivers:
       - name: 'gmail-notifications'
         email_configs:
-        - to: devopstrainingblr@gmail.com
-          from: devopstrainingbanglore@gmail.com # Update your from mail id here
+        - to: devopstrainingbanglore@gmail.com
+          from: devopslearningnine@gmail.com # Update your from mail id here
           smarthost: smtp.gmail.com:587
-          auth_username: devopstrainingbanglore@gmail.com # Update your from mail id here
-          auth_identity: devopstrainingbanglore@gmail.com # Update your from mail id here
-          auth_password: XXXX # Update your password here
+          auth_username: devopslearningnine@gmail.com # Update your from mail id here
+          auth_identity: devopslearningnine@gmail.com # Update your from mail id here
+          auth_password: vfkzbycfwfgfuasu  # Update your password here
           send_resolved: true
           headers:
             subject: " Prometheus -  Alert  "
